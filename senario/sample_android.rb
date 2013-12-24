@@ -7,7 +7,7 @@ require 'rspec'
 
 require '../parameters' # obtain each parameters
 
-describe 'lalacall basic functional check' do
+describe 'sample senario' do
 
   before :all do
     # Net::Http, which is standard http module in Ruby, has a default

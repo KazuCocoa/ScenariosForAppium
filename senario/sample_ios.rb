@@ -7,7 +7,7 @@ require 'rspec'
 
 require '../parameters' # obtain each parameters
 
-describe 'lalacall basic functional check' do
+describe 'sample senario' do
 
   before :all do
     # Net::Http, which is standard http module in Ruby, has a default
@@ -25,7 +25,7 @@ describe 'lalacall basic functional check' do
   end
 
   after :all do
-    @driver.quit if @driver
+    #@driver.quit if @driver
   end
 
   before :each do
@@ -56,6 +56,7 @@ describe 'lalacall basic functional check' do
 
     context '' do
       it '' do
+      end
     end
   end
 end

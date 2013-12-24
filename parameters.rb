@@ -1,7 +1,10 @@
 # -*- encoding: utf-8 -*-
 
 # please modify the following path to fit your app
-APP_PATH_IOS = '/Users/username/Library/Developer/Xcode/DerivedData/projectname/Build/Products/Debug-iphonesimulator/application.app'.freeze
+#APP_PATH_IOS = '/Users/kazuaki/Library/Developer/Xcode/DerivedData/SampleForAppium-fmhghmrlprlpisbamziauoqidtwh/Build/Products/Debug-iphoneos/SampleForAppium.app'.freeze
+#APP_PATH_IOS = './example/ios/SampleForAppium.app.zip'.freeze
+APP_PATH_IOS = 'https://github.com/KazuCocoa/sampleSenarioForAppium/blob/master/example/ios/TestApp.app.zip'.freeze
+
 APP_PATH_ANDROID = '/Users/username/Documents/test.apk'.freeze
 
 TARGET_SERVER = 'http://localhost:4723'.freeze
