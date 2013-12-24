@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 
 # please modify the following path to fit your app
-#APP_PATH_IOS = '/Users/kazuaki/Library/Developer/Xcode/DerivedData/SampleForAppium-fmhghmrlprlpisbamziauoqidtwh/Build/Products/Debug-iphoneos/SampleForAppium.app'.freeze
-#APP_PATH_IOS = './example/ios/SampleForAppium.app.zip'.freeze
-APP_PATH_IOS = 'https://github.com/KazuCocoa/sampleSenarioForAppium/blob/master/example/ios/TestApp.app.zip'.freeze
+#APP_PATH_IOS = '/Users/username/Library/Developer/Xcode/DerivedData/SampleForAppium-fmhghmrlprlpisbamziauoqidtwh/Build/Products/Debug-iphoneos/SampleForAppium.app'.freeze
+APP_PATH_IOS = 'https://dl.dropboxusercontent.com/u/1265532/SampleForAppium.app.zip'.freeze
+#APP_PATH_IOS = 'https://dl.dropboxusercontent.com/u/1265532/TestApp.app.zip'.freeze
 
 APP_PATH_ANDROID = '/Users/username/Documents/test.apk'.freeze
 
@@ -24,7 +24,7 @@ IOS_CAPABILITIES = {
   'browserName' => '',
   'device' => 'iPhone',
   'deviceName' => 'iPhone Retina (4-inch)', #only for ios simulator: 'iPhone Retina (3.5-inch)'
-  'version' => '6.1',
+  'version' => '7.0',
   'app' => APP_PATH_IOS
 }.freeze
 

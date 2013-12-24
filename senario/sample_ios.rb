@@ -25,7 +25,7 @@ describe 'sample senario' do
   end
 
   after :all do
-    #@driver.quit if @driver
+    @driver.quit if @driver
   end
 
   before :each do
