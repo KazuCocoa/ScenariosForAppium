@@ -7,7 +7,7 @@ require 'rspec'
 
 require '../parameters' # obtain each parameters
 
-describe 'sample senario' do
+describe 'sample scenario' do
 
   before :all do
     # Net::Http, which is standard http module in Ruby, has a default

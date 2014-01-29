@@ -1,14 +1,12 @@
-# -*- encoding: utf-8 -*-
-
 require 'rubygems'
 require 'selenium-webdriver'
 require 'date'
 require 'rspec'
-
+ 
 require '../parameters' # obtain each parameters
-
+ 
 describe 'sample scenario' do
-
+ 
   before :all do
     # Net::Http, which is standard http module in Ruby, has a default
     # internal timeout of 60 secound.
@@ -18,44 +16,45 @@ describe 'sample scenario' do
     @client.timeout = 120 # secound
     @driver = Selenium::WebDriver.for(:remote,
                                       :http_client => @client,
-                                      :desired_capabilities => IOS_CAPABILITIES,
+                                      :desired_capabilities => IOS_CAPABILITIES_SAFARI_IPAD,
                                       :url => SERVER_RUL)
     @driver.manage.timeouts.implicit_wait = 10 # seconds
-    @driver_wait = Selenium::WebDriver::Wait.new :timeout => 30
+    @driver_wait = Selenium::WebDriver::Wait.new :timeout => 60
   end
-
+ 
   after :all do
-    @driver.quit if @driver
+    #@driver.quit if @driver
   end
-
+ 
   before :each do
   end
-
+ 
   after :each do
   end
-
-  # sinario
+ 
+  # scenario
   # 初期化
   describe '' do
-    
+ 
     before :all do
-
+      @driver.get('https://docs.google.com/document/d/1lNM-UXOP2ttWLrRSwx76dLgxaeFtontlOegsg3i1_mU/edit?usp=drive_web')
     end
-
+ 
     after :all do
-
+ 
     end
-
+ 
     before :each do
-
+ 
     end
-
+ 
     after :each do
-
     end
-
+ 
     context '' do
-      it '' do
+      it 'open login page' do
+        @driver_wait.until { @driver.find_element(xpath: '//*[@id="header_buttons"]').displayed? }
+        @driver.find_element(xpath: '//*[@id="header_buttons"]/li[2]/a').click
       end
     end
   end
