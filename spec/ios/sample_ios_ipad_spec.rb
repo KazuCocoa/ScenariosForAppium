@@ -1,11 +1,6 @@
-require 'rubygems'
-require 'selenium-webdriver'
-require 'date'
-require 'rspec'
+require 'spec_helper'
  
-require '../parameters' # obtain each parameters
- 
-describe 'sample scenario' do
+describe 'sample scenario for ipad' do
  
   before :all do
     # Net::Http, which is standard http module in Ruby, has a default
@@ -23,7 +18,7 @@ describe 'sample scenario' do
   end
  
   after :all do
-    #@driver.quit if @driver
+    @driver.quit if @driver
   end
  
   before :each do

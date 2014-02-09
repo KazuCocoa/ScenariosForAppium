@@ -1,11 +1,4 @@
-# -*- encoding: utf-8 -*-
-
-require 'rubygems'
-require 'selenium-webdriver'
-require 'date'
-require 'rspec'
-
-require '../parameters' # obtain each parameters
+require 'spec_helper'
 
 describe 'sample scenario' do
 

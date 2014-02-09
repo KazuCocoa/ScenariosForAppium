@@ -1,5 +1,15 @@
 # coding: utf-8
- 
+
+require 'rubygems'
+require 'selenium-webdriver'
+require 'date'
+require 'rspec'
+
+# if you would like to use factorygirl
+#config.before(:all) do
+#  FactoryGirl.reload
+#end
+
 # please modify the following path to fit your app
 #APP_PATH_IOS = '/Users/username/Library/Developer/Xcode/DerivedData/SampleForAppium-fmhghmrlprlpisbamziauoqidtwh/Build/Products/Debug-iphoneos/SampleForAppium.app'.freeze
 APP_PATH_IOS = 'https://dl.dropboxusercontent.com/u/1265532/SampleForAppium.app.zip'.freeze
@@ -9,7 +19,7 @@ APP_PATH_ANDROID = '/Users/username/Documents/test.apk'.freeze
  
 TARGET_SERVER = 'http://localhost:4723'.freeze
  
-SCREENSHOT_SAVE_PATH = "#{Date::today.to_s}/".freeze
+SCREENSHOT_SAVE_PATH = "../screenshot/#{Date::today.to_s}/".freeze
 FileUtils.mkdir_p(SCREENSHOT_SAVE_PATH) unless FileTest.exist?(SCREENSHOT_SAVE_PATH)
  
 # 絶対パスの取得
