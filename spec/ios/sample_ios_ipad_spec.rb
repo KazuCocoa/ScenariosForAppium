@@ -3,18 +3,8 @@ require 'spec_helper'
 describe 'sample scenario for ipad' do
  
   before :all do
-    # Net::Http, which is standard http module in Ruby, has a default
-    # internal timeout of 60 secound.
-    # We need to extend it because selenium use more than 60 secound
-    # in many time.
-    @client = Selenium::WebDriver::Remote::Http::Default.new
-    @client.timeout = 120 # secound
-    @driver = Selenium::WebDriver.for(:remote,
-                                      :http_client => @client,
-                                      :desired_capabilities => IOS_CAPABILITIES_SAFARI_IPAD,
-                                      :url => SERVER_RUL)
-    @driver.manage.timeouts.implicit_wait = 10 # seconds
-    @driver_wait = Selenium::WebDriver::Wait.new :timeout => 60
+    @driver = setupAppium(IOS_CAPABILITIES_SAFARI_IPAD, APPIUM_SERVER_URL)
+    @driver_wait = waitAppiumDriver(30)
   end
  
   after :all do
