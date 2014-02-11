@@ -22,7 +22,7 @@ describe 'sample scenario for ipad' do
   describe '' do
  
     before :all do
-      @driver.get('https://docs.google.com/document/d/1lNM-UXOP2ttWLrRSwx76dLgxaeFtontlOegsg3i1_mU/edit?usp=drive_web')
+      
     end
  
     after :all do
@@ -37,8 +37,12 @@ describe 'sample scenario for ipad' do
     end
  
     context '' do
+      it 'open google page' do
+        @driver.get('https://docs.google.com/document/d/1lNM-UXOP2ttWLrRSwx76dLgxaeFtontlOegsg3i1_mU/edit?usp=drive_web')
+      end
+
       it 'open login page' do
-        @driver_wait.until { @driver.find_element(xpath: '//*[@id="header_buttons"]').displayed? }
+        @driver_wait.until { @driver.find_element(xpath: '//*[@id="header_buttons"]').displayed? }        
         @driver.find_element(xpath: '//*[@id="header_buttons"]/li[2]/a').click
       end
     end
