@@ -3,12 +3,12 @@ require 'spec_helper'
 describe 'sample scenario' do
 
   before :all do
-    @driver = setupAppium(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)
-    @driver_wait = waitAppiumDriver(30)
+    #@driver = setupAppium(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)
+    #@driver_wait = waitAppiumDriver(30)
   end
 
   after :all do
-    @driver.quit if @driver
+    #@driver.quit if @driver
   end
 
   before :each do
