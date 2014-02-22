@@ -1,21 +1,58 @@
 # coding: utf-8
 
-require 'rubygems'
 require 'selenium-webdriver'
 require 'date'
 require 'rspec'
+require 'turnip'
 
 Dir[File.join(File.dirname(__FILE__), "..", "config", "**/*.rb")].each { |f| require f }
 Dir[File.join(File.dirname(__FILE__), "..", "lib", "**/*.rb")].each { |f| require f }
 
-# if you would like to use factorygirl
-#config.before(:all) do
-#  FactoryGirl.reload
-#end
+Dir.glob('spec/**/*steps.rb') { |f| load(f, true) }
 
-# 絶対パスの取得
-def absolute_app_path
-    file = File.join(File.dirname(__FILE__), APP_PATH)
-    raise "App doesn't exist #{file}" unless File.exist? file
-    file
+def appium_driver
+  case @device
+    when 'iphone'
+      @driver ||= Appium::Driver.new.setup(IOS_CAPABILITIES, APPIUM_SERVER_URL)
+    when 'android'
+      @driver ||= Appium::Driver.new.setup(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)
+  end
+end
+
+def driver_cleanup
+  appium_driver.quit if @driver
+  @driver = nil
+end
+
+def save_picture_as(filename)
+    FileUtils.mkdir_p(SCREENSHOT_SAVE_PATH) unless FileTest.exist?(SCREENSHOT_SAVE_PATH)
+    appium_driver.save_screenshot "#{SCREENSHOT_SAVE_PATH}/#{filename}.png"
+end
+
+def driver_wait(time)
+  Selenium::WebDriver::Wait.new(timeout: time)
+end
+
+module Appium
+  class Driver
+    # return [Driver]
+    def setup(desired_capabilities, appium_server)
+      # Net::Http, which is standard http module in Ruby, has a default
+      # internal timeout of 60 secound.
+      # We need to extend it because selenium use more than 60 secound
+      # in many time.
+      @client = @client || Selenium::WebDriver::Remote::Http::Default.new
+      @client.timeout = 120
+
+      @driver ||= Selenium::WebDriver.for(:remote,
+                                        http_client: @client,
+                                        desired_capabilities: desired_capabilities,
+                                        url: appium_server)
+      # for Seledroid
+      #@driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
+      @driver.manage.timeouts.implicit_wait = 30 # seconds
+    
+      @driver
+    end
+  end
 end

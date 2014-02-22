@@ -23,7 +23,7 @@ IOS_CAPABILITIES = {
   #app: APP_PATH_IOS
   app: 'safari'
 }.freeze
- 
+
 # capabilities for Appium
 IOS_CAPABILITIES_SAFARI = {
   browserName: '',
