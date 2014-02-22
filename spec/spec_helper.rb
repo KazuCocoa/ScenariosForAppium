@@ -12,7 +12,7 @@ Dir.glob('spec/**/*steps.rb') { |f| load(f, true) }
 
 def appium_driver
   case @device
-    when 'iphone'
+    when 'iphone6_ios7'
       @driver ||= Appium::Driver.new.setup(IOS_CAPABILITIES, APPIUM_SERVER_URL)
     when 'android'
       @driver ||= Appium::Driver.new.setup(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)

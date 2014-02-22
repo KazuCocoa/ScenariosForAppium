@@ -1,40 +1,67 @@
 require 'spec_helper'
 
 describe 'search with google' do
+  describe 'with iPhone6 x ios7' do
+    before :all do
+      @device = 'iphone6_ios7'
+      appium_driver
+    end
 
-  before :all do
-    @device = 'iphone'
-    appium_driver
-  end
+    after :each do
+      driver_cleanup if example.exception
+    end
 
-  after :each do
-    driver_cleanup if example.exception
-  end
+    context 'search ゆき' do
+      let(:word) { 'ゆき' }
+      let(:url) { 'http://google.com' }
 
-  let(:word) { 'ゆき' }
+      it 'URLにhttp;//google.comを入力する' do
+        appium_driver.get(url)
+      end
 
-  it 'iPhone端末を使う' do
-    @device = 'iphone'
-  end
+      it 'Googleの検索欄に"ゆき"と入力する' do
+        appium_driver.find_element(:id, 'lst-ib').send_keys(word)
+      end
 
-  it 'URLにhttp;//google.comを入力する' do
-    appium_driver.get 'http://google.com'
-  end
+      it '検索を開始する' do
+        appium_driver.find_element(:id, 'tsf').submit
+      end
 
-  it 'Googleの検索欄に"ゆき"と入力する' do
-    appium_driver.find_element(:id, 'lst-ib').send_keys(word)
-  end
+      it '検索結果が表示された？' do
+        expect { driver_wait(3).until { appium_driver.find_element(:id, 'hdtb_msb') } }.not_to raise_error
+      end
 
-  it '検索を開始する' do
-    appium_driver.find_element(:id, 'tsf').submit
-  end
+      it 'スクリーンショットを撮る' do
+        save_picture_as(@device.to_s)
+        driver_cleanup
+      end
+    end
 
-  it '検索結果が表示された？' do
-    expect { driver_wait(3).until { appium_driver.find_element(:id, 'hdtb_msb') } }.not_to raise_error
-  end
+    context 'search 本' do
+      let(:word) { '本' }
+      let(:url) { 'http://google.com' }
 
-  it 'スクリーンショットを撮る' do
-    save_picture_as(@device.to_s)
-    driver_cleanup
+      it 'URLにhttp;//google.comを入力する' do
+        appium_driver.get(url)
+      end
+
+      it 'Googleの検索欄に"ゆき"と入力する' do
+        appium_driver.find_element(:id, 'lst-ib').send_keys(word)
+      end
+
+      it '検索を開始する' do
+        appium_driver.find_element(:id, 'tsf').submit
+      end
+
+      it '検索結果が表示された？' do
+        expect { driver_wait(3).until { appium_driver.find_element(:id, 'hdtb_msb') } }.not_to raise_error
+      end
+
+      it 'スクリーンショットを撮る' do
+        save_picture_as(@device.to_s)
+        driver_cleanup
+      end
+    end
+
   end
 end
