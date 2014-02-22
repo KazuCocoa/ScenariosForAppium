@@ -1,7 +1,7 @@
 sampleSenarioForAppium
 ======================
 
-RSpec senario for Appium as example.
+RSpec scenario for Appium as example.
 
 please start rspec on top directory
 
