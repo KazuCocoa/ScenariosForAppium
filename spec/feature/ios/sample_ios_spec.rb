@@ -1,17 +1,24 @@
 require 'spec_helper'
 
 describe 'search with google' do
-  describe 'with iPhone6 x ios7' do
-    before :all do
-      @device = 'iphone6_ios7'
-      appium_driver
-    end
+  before(:all) do
+    driver_cleanup
+  end
 
-    after :each do
+  describe 'with iPhone6 x ios7' do
+    after(:each) do
       driver_cleanup if example.exception
     end
 
     context 'search ゆき' do
+      before(:all) do
+        @device = 'iphone6_ios7'
+        appium_driver
+      end
+      after(:all) do
+        driver_cleanup
+      end
+
       let(:word) { 'ゆき' }
       let(:url) { 'http://google.com' }
 
@@ -33,11 +40,18 @@ describe 'search with google' do
 
       it 'スクリーンショットを撮る' do
         save_picture_as(@device.to_s)
-        driver_cleanup
       end
     end
 
     context 'search 本' do
+      before(:all) do
+        @device = 'iphone6_ios7'
+        appium_driver
+      end
+      after(:all) do
+        driver_cleanup
+      end
+
       let(:word) { '本' }
       let(:url) { 'http://google.com' }
 
@@ -59,7 +73,6 @@ describe 'search with google' do
 
       it 'スクリーンショットを撮る' do
         save_picture_as(@device.to_s)
-        driver_cleanup
       end
     end
 

@@ -10,5 +10,12 @@ end
 
 RSpec::Core::RakeTask.new(:spec) do |spec|
   #setup_android if ENV['device'] == 'android'
-  spec.pattern = "spec/acceptance/**/*.feature"
+  if ENV['scope'] == 'acceptance'
+    spec.pattern = 'spec/acceptance/**/*.feature'
+  elsif ENV['scope'] == 'feature'
+    spec.pattern = 'spec/feature/**/*_spec.rb'
+  else
+    spec.pattern << 'spec/**/*.feature'
+  end
+
 end
