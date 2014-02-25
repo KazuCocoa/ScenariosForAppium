@@ -6,16 +6,15 @@ require 'rspec'
 require 'turnip'
 
 Dir[File.join(File.dirname(__FILE__), "..", "config", "**/*.rb")].each { |f| require f }
-Dir[File.join(File.dirname(__FILE__), "..", "lib", "**/*.rb")].each { |f| require f }
 
 Dir.glob('spec/**/*steps.rb') { |f| load(f, true) }
 
 def appium_driver
   case @device
-    when 'iphone6_ios7'
-      @driver ||= Appium::Driver.new.setup(IOS_CAPABILITIES, APPIUM_SERVER_URL)
+    when 'iphone'
+      @driver ||= driver_setup(IOS_CAPABILITIES, APPIUM_SERVER_URL)
     when 'android'
-      @driver ||= Appium::Driver.new.setup(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)
+      @driver ||= driver_setup(ANDROID_CAPABILITIES, APPIUM_SERVER_URL)
   end
 end
 
@@ -33,26 +32,23 @@ def driver_wait(time)
   Selenium::WebDriver::Wait.new(timeout: time)
 end
 
-module Appium
-  class Driver
-    # return [Driver]
-    def setup(desired_capabilities, appium_server)
-      # Net::Http, which is standard http module in Ruby, has a default
-      # internal timeout of 60 secound.
-      # We need to extend it because selenium use more than 60 secound
-      # in many time.
-      @client = @client || Selenium::WebDriver::Remote::Http::Default.new
-      @client.timeout = 120
 
-      @driver ||= Selenium::WebDriver.for(:remote,
-                                        http_client: @client,
-                                        desired_capabilities: desired_capabilities,
-                                        url: appium_server)
-      # for Seledroid
-      #@driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
-      @driver.manage.timeouts.implicit_wait = 30 # seconds
-    
-      @driver
-    end
-  end
+# return [Driver]
+def driver_setup(desired_capabilities, appium_server)
+  # Net::Http, which is standard http module in Ruby, has a default
+  # internal timeout of 60 secound.
+  # We need to extend it because selenium use more than 60 secound
+  # in many time.
+  @client = @client || Selenium::WebDriver::Remote::Http::Default.new
+  @client.timeout = 120
+
+  @driver ||= Selenium::WebDriver.for(:remote,
+                                    http_client: @client,
+                                    desired_capabilities: desired_capabilities,
+                                    url: appium_server)
+  # for Seledroid
+  #@driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
+  @driver.manage.timeouts.implicit_wait = 30 # seconds
+
+  @driver
 end
