@@ -17,7 +17,7 @@ FileUtils.mkdir_p(SCREENSHOT_SAVE_PATH) unless FileTest.exist?(SCREENSHOT_SAVE_P
 # capabilities for Appium
 IOS_CAPABILITIES = {
   browserName: '',
-  #device: 'iPhone',
+  device: 'iPhone',
   deviceName: 'iPhone Retina (4-inch)', #only for ios simulator: 'iPhone Retina (3.5-inch)'
   version: '7.0',
   #app: APP_PATH_IOS
@@ -28,10 +28,11 @@ IOS_CAPABILITIES = {
 IOS_CAPABILITIES = {
   automationName: 'appium',
   platformName: 'iOS',
-  platformVersion: '7.0',
+  platformVersion: '7.0', #or version: '7.0'
+  device: 'iPhone',
   deviceName: 'iPhone Retina (4-inch)',
   browserName: 'safari'#app: APP_PATH
-}
+}.freeze
 
 
 # capabilities for Appium
