@@ -25,11 +25,11 @@ IOS_CAPABILITIES = {
 }.freeze
 
 #new capability
+
 IOS_CAPABILITIES = {
   automationName: 'appium',
-  platformName: 'iOS',
+  platformName: 'iOS',#or device
   platformVersion: '7.0', #or version: '7.0'
-  device: 'iPhone',
   deviceName: 'iPhone Retina (4-inch)',
   browserName: 'safari'#app: APP_PATH
 }.freeze
