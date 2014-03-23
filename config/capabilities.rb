@@ -16,51 +16,27 @@ FileUtils.mkdir_p(SCREENSHOT_SAVE_PATH) unless FileTest.exist?(SCREENSHOT_SAVE_P
 
 # capabilities for Appium
 IOS_CAPABILITIES = {
-  browserName: '',
-  device: 'iPhone',
-  deviceName: 'iPhone Retina (4-inch)', #only for ios simulator: 'iPhone Retina (3.5-inch)'
-  version: '7.0',
-  #app: APP_PATH_IOS
-  app: 'safari'
-}.freeze
-
-#new capability
-IOS_CAPABILITIES = {
   automationName: 'appium',
-  platformName: 'iOS',#or device: 'iOS'
-  platformVersion: '7.0', #or version: '7.0'
-  deviceName: 'iPhone Retina (4-inch)',
-  browserName: 'safari'#app: APP_PATH
-}.freeze
-
-
-# capabilities for Appium
-IOS_CAPABILITIES_SAFARI = {
-  browserName: '',
-  device: 'iPhone',
+  platformName: 'iPhone',
+  platformVersion: '7.0',
   deviceName: 'iPhone Retina (4-inch)', #only for ios simulator: 'iPhone Retina (3.5-inch)'
-  version: '7.0',
-  app: 'safari'
+  app: 'safari'  #app: APP_PATH_IOS
 }.freeze
- 
+
 # capabilities for Appium
 IOS_CAPABILITIES_SAFARI_IPAD = {
-  browserName: '',
-  device: 'iPad',
+  automationName: 'appium',
+  platformName: 'iPad',
+  platformVersion: '7.0',
   deviceName: 'iPad Retina',
-  version: '7.0',
   app: 'safari'
 }.freeze
  
- 
 ANDROID_CAPABILITIES = {
-  'browserName' => '',
-  'device' => 'Android',
-  'version' => '4.2',
-  'app' => APP_PATH_ANDROID,
-  'app-package' => 'com.example',
-  'app-activity' => '.views.InitialActovoty',
-  'newCommandTimeout' => 60,
-  'app-wait-activity' => '.views.InitialActovoty'
-  #'device-ready-timeout' => 5
+  automationName: 'appium',
+  platformName: 'Android',
+  platformVersion: '4.2',
+  #deviceName: '', #e.g. Nexus 4
+  app: APP_PATH_ANDROID,
+  newCommandTimeout: 60
 }.freeze
