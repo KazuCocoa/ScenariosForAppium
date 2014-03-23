@@ -38,7 +38,7 @@ def driver_setup(desired_capabilities, appium_server)
                                     desired_capabilities: desired_capabilities,
                                     url: appium_server)
   # for Seledroid
-  #@driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
+  @driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
   @driver.manage.timeouts.implicit_wait = 30 # seconds
 
   @driver

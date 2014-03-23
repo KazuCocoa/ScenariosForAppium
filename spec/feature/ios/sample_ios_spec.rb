@@ -45,7 +45,7 @@ describe 'search with google' do
 
     context 'search 本' do
       before(:all) do
-        @device = 'iphone6_ios7'
+        @device = 'iphone'
         appium_driver
       end
       after(:all) do

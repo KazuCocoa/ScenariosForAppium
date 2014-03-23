@@ -37,6 +37,14 @@ ANDROID_CAPABILITIES = {
   platformName: 'Android',
   platformVersion: '4.2',
   #deviceName: '', #e.g. Nexus 4
-  app: APP_PATH_ANDROID,
-  newCommandTimeout: 60
+  #app: APP_PATH_ANDROID
+  browserName: 'chrome'
+}.freeze
+
+ANDROID_CAPABILITIES_SELENDROID = {
+  automationName: 'selendroid',
+  platformName: 'Android',
+  platformVersion: '4.2',
+  #deviceName: '', #e.g. Nexus 4
+  app: 'chrome' # APP_PATH_ANDROID,
 }.freeze
