@@ -26,20 +26,8 @@ end
 
 # return [Driver]
 def driver_setup(desired_capabilities, appium_server)
-  # Net::Http, which is standard http module in Ruby, has a default
-  # internal timeout of 60 secound.
-  # We need to extend it because selenium use more than 60 secound
-  # in many time.
-  @client = @client || Selenium::WebDriver::Remote::Http::Default.new
-  @client.timeout = 120
+  desired_capabilities.merge(server_url: appium_server)
 
-  @driver ||= Selenium::WebDriver.for(:remote,
-                                    http_client: @client,
-                                    desired_capabilities: desired_capabilities,
-                                    url: appium_server)
-  # for Seledroid
-  @driver.extend Selenium::WebDriver::DriverExtensions::HasTouchScreen
-  @driver.manage.timeouts.implicit_wait = 30 # seconds
+  Appium::Driver.new(desired_capabilities).start_driver
 
-  @driver
 end

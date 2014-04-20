@@ -26,6 +26,20 @@ module GoogleSearch
     save_picture_as("#{@device.to_s}-#{number}")
     driver_cleanup
   end
+
+  step 'I do action as the following steps:' do |table|
+    table.hashes.each do |hash|
+      case hash['Action']
+      when 'go_site' then
+        appium_driver.get hash['Target']
+      when 'input_field' then
+        appium_driver.find_element(:id, 'lst-ib').send_keys(hash['Target'])
+      when 'submit' then
+        appium_driver.find_element(:id, 'tsf').submit
+      end
+    end
+  end
+  
 end
 
 RSpec.configure do |c|
