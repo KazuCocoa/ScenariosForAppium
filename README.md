@@ -9,18 +9,13 @@ Appium is E2E test automation tool
 appium@1.2.x
 
 # Caution
-## Run Appium
-Start Appium
-
-```
-$ appium
-```
-
 ## Run Test
 
 ```
-$ ./run_test.sh staging
+$ ./run_test.sh
 ```
+
+./run_test.sh also starts appium themselves.
 
 You should set modify target application module from ```config/ios_capabilities.rb``` or ```config/android_capabilities.rb```
 
