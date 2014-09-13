@@ -44,7 +44,4 @@ end
 
 RSpec.configure do |c|
   c.include GoogleSearch
-  c.after(:each) do
-    driver_cleanup if example.exception
-  end
 end
