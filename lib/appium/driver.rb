@@ -24,23 +24,6 @@ module AppiumDriver
   end
 
 #------------
-# wait operations
-# -----------
-
-  def driver_wait_until_displayed_name?(name, time)
-    Selenium::WebDriver::Wait.new(timeout: time.to_f).until {
-      #find(name).displayed?
-      find_element(accessibility_id: name).displayed?
-    }
-  end
-
-  def driver_wait_until_displayed_xpath?(xpath, time)
-    Selenium::WebDriver::Wait.new(timeout: time.to_f).until {
-      find_element(xpath: xpath).displayed?
-    }
-  end
-
-#------------
 # driver operations
 # -----------
 

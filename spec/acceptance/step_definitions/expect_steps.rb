@@ -5,11 +5,11 @@ module ExpectSteps
   # Confirmation with expect
   step '画面に :name が表示されている' do |name|
     sleep 1
-    expect { driver_wait_until_displayed_name?(name, 5) }.not_to raise_error
+    expect( wait { find_element(accessibility_id: name) }.displayed? ).to be true
   end
 
   step '画面に :name が表示されていない' do |name|
-    expect { driver_wait_until_displayed_name?(name, 5) }.to raise_error
+    expect( wait { find_element(accessibility_id: name) }.displayed? ).to be false
   end
 
 end
