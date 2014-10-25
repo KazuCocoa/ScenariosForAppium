@@ -23,8 +23,6 @@ RSpec.configure do |c|
   #c.output_stream ||= File.open("#{OUT_REPORT}/report-#{ENV['scope']}.html", 'w')
 
   c.include AppiumDriver
-  c.include AppiumGesture
-  c.include AppiumCommon
 
   c.include AppiumAndroid if ENV['os'] == 'android'
   c.include AppiumIos if ENV['os'] == 'ios'

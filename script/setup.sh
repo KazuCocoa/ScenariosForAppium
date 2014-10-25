@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPIUM_VERSION="1.2.1"
+APPIUM_VERSION="1.3.1"
 
 # check npm command
 if !( type npm > /dev/null 2>&1 ) ; then

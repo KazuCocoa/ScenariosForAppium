@@ -2,10 +2,22 @@
 
 module BasicSteps
 
+  def app_driver(device, server_url)
+    case device
+    when 'iphone'
+      driver_start_with(IOS_CAPS, server_url)
+    when 'ipad'
+      @driver ||= driver_start_with(IOS_CAPS_IPAD, server_url)
+    when 'android'
+      @driver ||= driver_start_with(ANDROID_CAPS, server_url)
+    else
+      @driver ||= driver_start_with(device, server_url)
+    end
+  end
+
   # Device
   step ':device で試験を行う' do |device|
-    @device = device
-    app_driver
+    app_driver(device, APPIUM_SERVER_URL)
   end
 
   step '私は :time 秒待つ' do |time|

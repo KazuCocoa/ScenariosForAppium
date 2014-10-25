@@ -6,7 +6,7 @@ Appium is E2E test automation tool
 - http://appium.io/
 
 # Requirement
-appium@1.2.x
+appium@1.3.x
 
 # Caution
 ## Run Test

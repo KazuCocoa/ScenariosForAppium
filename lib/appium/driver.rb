@@ -1,22 +1,20 @@
 # coding: utf-8
 
+# light rapper
+require_relative 'gesture'
+require_relative 'common'
+
 module AppiumDriver
   #------------
   # basic operations
   # -----------
 
+  include AppiumGesture
+  include AppiumCommon
+
   # return instance of [Driver]
-  def app_driver
-    case @device
-    when 'iphone'
-      @driver ||= driver_setup(IOS_CAPS, APPIUM_SERVER_URL)
-    when 'ipad'
-      @driver ||= driver_setup(IOS_CAPS_IPAD, APPIUM_SERVER_URL)
-    when 'android'
-      @driver ||= driver_setup(ANDROID_CAPS, APPIUM_SERVER_URL)
-    else
-      @driver ||= driver_setup(@device, APPIUM_SERVER_URL)
-    end
+  def driver_start_with(caps, server_url)
+    @driver ||= driver_start(caps, server_url)
   end
 
   def driver_cleanup
@@ -28,12 +26,12 @@ module AppiumDriver
 # -----------
 
 # return [Driver]
-  def driver_setup(desired_capabilities, appium_server)
+  def driver_start(desired_capabilities, appium_server)
 
     server_caps = {
         debug: false, #true
         server_url: appium_server,
-        wait: 20 #min
+        wait: 30 #min
     }
 
     caps = { caps: desired_capabilities, appium_lib: server_caps }
