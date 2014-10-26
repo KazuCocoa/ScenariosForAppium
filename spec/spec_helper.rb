@@ -27,11 +27,24 @@ RSpec.configure do |c|
   c.include AppiumAndroid if ENV['os'] == 'android'
   c.include AppiumIos if ENV['os'] == 'ios'
 
-  c.before(:all) do
+  ## hooks for all
+  c.before(:all, type: :feature) do
     $driver.driver_quit if $driver
   end
+  c.after(:all, type: :feature) do
+    # do something
+  end
 
-  c.after(:each) do
+  ## hooks for each
+  c.before(:each, type: :feature) do
+    # do something
+  end
+  c.after(:each, type: :feature) do |example| # example method deleted in RSpec3
+    if example.exception
+      # do something after scenarios failed
+      # like "After do |scenario|" in Cucumber
+    end
+
     $driver.driver_quit if $driver
   end
 end
