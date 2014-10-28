@@ -36,13 +36,13 @@ RSpec.configure do |c|
   end
 
   ## hooks for each
-  c.before(:each, type: :feature) do
+  c.before(:each, type: :feature) do |example|
     # do something
   end
   c.after(:each, type: :feature) do |example| # example method deleted in RSpec3
     if example.exception
-      # do something after scenarios failed
-      # like "After do |scenario|" in Cucumber
+      save_screen_in(SCREENSHOT_SAVE_PATH_ERRORS,
+                     "#{example.example_group.description}_#{DateTime.now.strftime("%Y-%m-%d-%H%M%S")}")
     end
 
     $driver.driver_quit if $driver
