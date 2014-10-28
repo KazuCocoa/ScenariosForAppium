@@ -1,3 +1,2 @@
 --color
---format html --out report/report.html
 -r turnip/rspec

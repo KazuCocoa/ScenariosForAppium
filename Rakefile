@@ -3,6 +3,8 @@ task default: :spec
 
 RSpec::Core::RakeTask.new(:spec) do |spec|
 
+  spec.rspec_opts = "--tag #{ENV['tag']}"
+
   if ENV['os'] == 'ios' || ENV['os'] == 'android'
     # nothing
   else

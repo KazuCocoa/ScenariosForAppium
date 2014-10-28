@@ -1,5 +1,7 @@
 # coding: utf-8
 
+require 'appium_lib'
+
 # light rapper
 require_relative 'gesture'
 require_relative 'common'
