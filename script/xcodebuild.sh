@@ -3,21 +3,17 @@
 device=$1
 env=$2
 
-# you should use Xcode 6 to build it.
+# you should use Xcode 6 to build.
 if [ "${device}" = "iphone" ] ; then
   echo "iPhone build"
 
-  IOS_SDK="iphonesimulator7.1"
-  DESTINATION="platform=iOS Simulator,name=iPhone Retina (4-inch),OS=7.1"
-#  IOS_SDK="iphonesimulator8.0"
-#  DESTINATION="platform=iOS Simulator,name=iPhone 5s,OS=8.0"
+  IOS_SDK="iphonesimulator8.1"
+  DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=8.1"
 elif [ "${device}" = "ipad" ] ; then
   echo "iPhone build"
 
-  IOS_SDK="iphonesimulator7.1"
-  DESTINATION="platform=iOS Simulator,name=iPad Retina,OS=7.1"
-#  IOS_SDK="iphonesimulator8.0"
-#  DESTINATION="platform=iOS Simulator,name=iPad Retina,OS=8.0"
+  IOS_SDK="iphonesimulator8.1"
+  DESTINATION="platform=iOS Simulator,name=iPad Retina,OS=8.1"
 else
   echo "Enter option 'iphone' or 'ipad' to select build scheme as 1st arg."
   exit 0
