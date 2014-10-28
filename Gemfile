@@ -7,7 +7,8 @@ gem 'rspec', '~> 3.0.0'
 gem 'rspec-expectations'
 
 # For Turnip
-gem 'turnip'
+gem 'turnip' , '~> 1.2.4'
+gem 'turnip_formatter' , '~> 0.3.2'
 
 # For Appium
 gem 'appium_lib' , '~> 4.1.0'
