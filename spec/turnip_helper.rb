@@ -1,7 +1,7 @@
 require 'turnip_formatter'
 
 RSpec.configure do |c|
-  c.add_formatter RSpecTurnipFormatter, "#{OUT_REPORT}/report.html"
+  c.add_formatter RSpecTurnipFormatter, "report/report.html"
 end
 
 TurnipFormatter.configure do |config|

@@ -1,7 +1,7 @@
 # coding: utf-8
 
-module IosSampleSteps
-
+# execute only tagged as :sample_scenario
+steps_for :sample_scenario do
   step ' :account と :pass でログインする' do |account, pass|
     # login scenario with account and pass
   end
@@ -19,8 +19,4 @@ module IosSampleSteps
       # nothing
     end
   end
-end
-
-RSpec.configure do |c|
-  c.include IosSampleSteps
 end

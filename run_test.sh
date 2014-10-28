@@ -11,6 +11,13 @@ if [ "${env}" = "product" ] ; then
   bundle exec rake spec os=ios scope=ios-sample caps="IOS_CAPS"
 
   kill $LATEST_APPID
+  appium --log-level info --language ja &
+  sleep 5
+  LATEST_APPID=$!
+
+  bundle exec rake spec os=ios scope=ios-sample caps="IOS_CAPS" tag=sample_scenario
+
+  kill $LATEST_APPID
 
   # if you would like to continue other scenarios, I recommend to start Appium again and do bundle exec.
 

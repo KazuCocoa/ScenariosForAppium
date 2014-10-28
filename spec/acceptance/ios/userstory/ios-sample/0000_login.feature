@@ -2,6 +2,8 @@
 # language: ja
 
 機能: 0000. feature sample for ios
+
+  @sample_scenario
   シナリオアウトライン: scenario outline
   descriptions
     前提 <device> で試験を行う
