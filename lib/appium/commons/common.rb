@@ -1,11 +1,5 @@
 # coding: utf-8
 
-
-def rand_str(length)
-  str = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
-  Array.new(length){str[rand(str.size)]}.join
-end
-
 module AppiumCommon
 
   #------------
@@ -30,7 +24,7 @@ module AppiumCommon
   def save_screen_with_1_as(filename)
     sleep 1
     save_screen_as(filename)
-    sleep 0.5
+    sleep 1
   end
 
 end

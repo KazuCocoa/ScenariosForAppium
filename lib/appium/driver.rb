@@ -3,8 +3,8 @@
 require 'appium_lib'
 
 # light rapper
-require_relative 'gesture'
-require_relative 'common'
+require_relative 'commons/gesture'
+require_relative 'commons/common'
 
 module AppiumDriver
   #------------
