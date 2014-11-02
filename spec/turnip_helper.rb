@@ -1,8 +1,7 @@
-require 'turnip_formatter'
+# coding: utf-8
 
-RSpec.configure do |c|
-  c.add_formatter RSpecTurnipFormatter, "report/report.html"
-end
+require 'turnip'
+require 'turnip_formatter'
 
 TurnipFormatter.configure do |config|
   config.title = 'My title'
