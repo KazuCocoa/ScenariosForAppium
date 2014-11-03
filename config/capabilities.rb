@@ -10,16 +10,16 @@ APPIUM_SERVER_URL = "#{APPIUM_SERVER}/wd/hub".freeze
 
 OUT_PATH = "./report/#{DateTime.now.strftime("%Y-%m-%d-%H%M%S")}/".freeze
 OUT_REPORT_PATH = "#{
-def get_result_path(out_dir, scope, caps)
-  if scope && caps
-    "#{out_dir}/#{scope}-#{caps}/"
-  elsif scope
-    "#{out_dir}/#{scope}/"
-  else
-    "#{out_dir}/non-scope/"
+  def get_result_path(out_dir, scope, caps)
+    if scope && caps
+      "#{out_dir}/#{scope}-#{caps}/"
+    elsif scope
+      "#{out_dir}/#{scope}/"
+    else
+      "#{out_dir}/non-scope/"
+    end
   end
-end
-get_result_path(OUT_PATH, ENV['scope'], ENV['caps'])
+  get_result_path(OUT_PATH, ENV['scope'], ENV['caps'])
 }".freeze
 SCREENSHOT_SAVE_PATH = "#{OUT_REPORT_PATH}/screenshot/".freeze
 SCREENSHOT_SAVE_PATH_ERRORS = "#{SCREENSHOT_SAVE_PATH}errors/".freeze
