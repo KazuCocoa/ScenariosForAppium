@@ -5,7 +5,7 @@ APPIUM_VERSION="1.3.1"
 # check npm command
 if !( type npm > /dev/null 2>&1 ) ; then
   echo "npm command not found."
-  echo "Please install npm command to install appium."
+  echo "If you use UNIX like system, you can install with 'curl -L https://npmjs.org/install.sh | sh'"
   exit 1
 fi
 

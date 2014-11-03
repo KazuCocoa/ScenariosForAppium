@@ -4,20 +4,8 @@ device=$1
 env=$2
 
 # you should use Xcode 6 to build.
-if [ "${device}" = "iphone" ] ; then
-  echo "iPhone build"
-
-  IOS_SDK="iphonesimulator8.1"
-  DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=8.1"
-elif [ "${device}" = "ipad" ] ; then
-  echo "iPhone build"
-
-  IOS_SDK="iphonesimulator8.1"
-  DESTINATION="platform=iOS Simulator,name=iPad Retina,OS=8.1"
-else
-  echo "Enter option 'iphone' or 'ipad' to select build scheme as 1st arg."
-  exit 0
-fi
+IOS_SDK="iphonesimulator8.1"
+DESTINATION="platform=iOS Simulator,name=iPhone 6,OS=8.1"
 
 CURRENT_DIR=`pwd`
 

@@ -8,14 +8,24 @@ Appium is E2E test automation tool
 # Requirement
 appium@1.3.x
 
-# Caution
-## Run Test
+# Setup
 
 ```
-$ ./run_test.sh
+$ ./script/setup.sh
 ```
 
-./run_test.sh also starts appium themselves.
+# Build aplication
 
-You should set modify target application module from ```config/ios_capabilities.rb``` or ```config/android_capabilities.rb```
+```
+$ ./script/xcodebuild.sh
+```
+
+# Run test
+
+```
+$ ./run_test.sh staging
+```
+
+# capabilities
+```config/ios_capabilities.rb``` or ```config/android_capabilities.rb```
 
