@@ -1,6 +1,6 @@
 # coding: utf-8
 
-module AppiumIos
+module AppiumIosKey
 
 
   # keyboard

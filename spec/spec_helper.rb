@@ -13,8 +13,12 @@ RSpec.configure do |c|
 
   c.include AppiumDriver
 
-  c.include AppiumAndroid if ENV['os'] == 'android'
-  c.include AppiumIos if ENV['os'] == 'ios'
+  if ENV['os'] == 'android'
+    c.include AppiumAndroidKey
+  elsif ENV['os'] == 'ios'
+    c.include AppiumIosKey
+    c.include AppiumIosAlert
+  end
 
   ## hooks for all
   c.before(:all, type: :feature) do

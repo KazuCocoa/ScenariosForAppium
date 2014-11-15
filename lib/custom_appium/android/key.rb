@@ -1,6 +1,6 @@
 # coding: utf-8
 
-module AppiumAndroid
+module AppiumAndroidKey
 
   # send key event of KEYCODE_MENU
   def android_open_menu
