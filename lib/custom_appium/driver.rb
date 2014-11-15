@@ -2,7 +2,7 @@
 
 require 'appium_lib'
 
-# light rapper
+# light wrapper
 require_relative 'commons/gesture'
 require_relative 'commons/common'
 
@@ -23,17 +23,17 @@ module AppiumDriver
     driver_quit if @driver
   end
 
-#------------
-# driver operations
-# -----------
+  #------------
+  # driver operations
+  # -----------
 
-# return [Driver]
+  # return [Driver]
   def driver_start(desired_capabilities, appium_server)
 
     server_caps = {
         debug: false, #true
         server_url: appium_server,
-        wait: 30 #min
+        wait: 60 # equal to @default_wait in appium_lib source code.
     }
 
     caps = { caps: desired_capabilities, appium_lib: server_caps }
@@ -44,7 +44,7 @@ module AppiumDriver
     # Note that this can also be scoped to limit the potential for conflicts.
     # Example: Appium.promote_appium_methods ::Example::Spec
     # Another alternative is to not promote at all. Instead access methods via $driver
-    Appium.promote_appium_methods Object
+    Appium.promote_appium_methods RSpec::Core::ExampleGroup
 
     @driver
   end

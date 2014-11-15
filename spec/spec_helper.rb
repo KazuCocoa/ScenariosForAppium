@@ -3,18 +3,13 @@
 require 'date'
 require 'rspec'
 
-Dir[File.join(File.dirname(__FILE__), "..", "config", "**/*.rb")].each { |f| require f }
 Dir[File.join(File.dirname(__FILE__), "..", "lib", "**/*.rb")].each { |f| require f }
-
-Dir.glob("spec/acceptance/#{ENV['os']}/step_definitions/#{ENV['scope']}/**/*steps.rb") { |f| load(f, true) }
-Dir.glob('spec/acceptance/step_definitions/**/*steps.rb') { |f| load(f, true) }
+Dir[File.join(File.dirname(__FILE__), "..", "config", "**/*.rb")].each { |f| require f }
 
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
 RSpec.configure do |c|
-
-  c.add_formatter RSpecTurnipFormatter, OUT_REPORT
 
   c.include AppiumDriver
 
