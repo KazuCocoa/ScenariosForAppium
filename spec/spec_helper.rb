@@ -20,24 +20,35 @@ RSpec.configure do |c|
     c.include AppiumIosAlert
   end
 
-  ## hooks for all
-  c.before(:all, type: :feature) do
+  ## hooks for all test suite
+  c.before(:suite, type: :feature) do
+    puts '============start test suite============'
     $driver.driver_quit if $driver
   end
-  c.after(:all, type: :feature) do
+  c.after(:suite, type: :feature) do
+    $driver.driver_quit if $driver
+    puts '============finish test suite============'
+  end
+
+  ## hooks for all test suite
+  c.before(:context, type: :feature) do
+    # do something
+  end
+  c.after(:context, type: :feature) do
     # do something
   end
 
   ## hooks for each
-  c.before(:each, type: :feature) do |example|
+  c.before(:example, type: :feature) do |example|
     # do something
   end
-  c.after(:each, type: :feature) do |example| # example method deleted in RSpec3
+  c.after(:example, type: :feature) do |example| # example method deleted in RSpec3
     if example.exception
       save_screen_in(SCREENSHOT_SAVE_PATH_ERRORS,
-                     "#{example.example_group.description}_#{DateTime.now.strftime("%Y-%m-%d-%H%M%S")}")
+                     "#{example.example_group.description}_#{DateTime.now.strftime("%Y-%m-%d-%H%M%S")}_failed_test")
     end
 
     $driver.driver_quit if $driver
   end
+
 end
