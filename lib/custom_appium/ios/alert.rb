@@ -12,4 +12,36 @@ module AppiumIosAlert
     alert_dismiss if execute_script('$.mainApp().alert().buttons().length > 0')
   end
 
+  # waiting alert ...
+  def wait_alert_accept_if_exist
+    wait(message: 'waiting alert dialog via wait_alert_accept_until_display_alert') {
+      execute_script('$.mainApp().alert().buttons().length > 0')
+    }
+    alert_accept_if_exist
+  end
+
+  def wait_alert_dismiss_if_exist
+    wait(message: 'waiting alert dialog via wait_alert_dismiss_until_display_alert') {
+      execute_script('$.mainApp().alert().buttons().length > 0')
+    }
+    alert_dismiss_if_exist
+  end
+
+  ## ignore raise error when waiting alert ...
+  def ignore_wait_alert_accept_if_exist
+    begin
+      wait_alert_accept_if_exist
+    rescue
+      # nothing
+    end
+  end
+
+  def ignore_wait_alert_dismiss_if_exist
+    begin
+      wait_alert_dismiss_if_exist
+    rescue
+      # nothing
+    end
+  end
+
 end
