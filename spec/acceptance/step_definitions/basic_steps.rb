@@ -67,6 +67,14 @@ module BasicSteps
   step 'スクリーンショットを :filename という名前で撮る' do |filename|
     save_screen_with_1_as(filename)
   end
+  
+  # just sample
+  step '私はアラートメニューの :text をタップする' do |value|
+    if wait_true(message: "failed to wait #{value} on alert with timeout") {
+      execute_script('$.mainApp().alert().buttons().length > 0') }
+      execute_script("$.mainApp().alert().buttons()['#{value}'].tap();")
+    end
+  end
 
 end
 
