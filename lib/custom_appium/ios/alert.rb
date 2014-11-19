@@ -2,6 +2,8 @@
 
 module AppiumIosAlert
 
+  # UIAutomation doesn't fail with '$.mainApp().alert()'.
+  # Should get element to identify return true or false.
   def alert_accept_if_exist
     # from ruby_lib of driver.send(:bridge).acceptAlert
     alert_accept if execute_script('$.mainApp().alert().buttons().length > 0')
@@ -14,14 +16,14 @@ module AppiumIosAlert
 
   # waiting alert ...
   def wait_alert_accept_if_exist
-    wait(message: 'waiting alert dialog via wait_alert_accept_until_display_alert') {
+    wait_true(timeout: 10, message: 'waiting alert dialog via wait_alert_accept_until_display_alert') {
       execute_script('$.mainApp().alert().buttons().length > 0')
     }
     alert_accept_if_exist
   end
 
   def wait_alert_dismiss_if_exist
-    wait(message: 'waiting alert dialog via wait_alert_dismiss_until_display_alert') {
+    wait_true(timeout: 10,  message: 'waiting alert dialog via wait_alert_dismiss_until_display_alert') {
       execute_script('$.mainApp().alert().buttons().length > 0')
     }
     alert_dismiss_if_exist
@@ -43,5 +45,4 @@ module AppiumIosAlert
       # nothing
     end
   end
-
 end
