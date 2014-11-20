@@ -40,11 +40,12 @@ IOS_CAPS = {
     platformVersion: '8.1',
     deviceName: 'iPhone 6 Plus',
     calendarFormat: 'gregorian' # || japanese
-}.merge(CAPS_TEST_TARGET_IOS).
-    merge(CAPS_COMMON_IOS).
-    merge(CAPS_KEYS_IOS).
-    merge(CAPS_LOCAL_IOS).
-    merge(CAPS_OTHER_IOS).freeze
+}.merge(CAPS_TEST_TARGET_IOS)
+               .merge(CAPS_COMMON_IOS)
+               .merge(CAPS_KEYS_IOS)
+               .merge(CAPS_LOCAL_IOS)
+               .merge(CAPS_OTHER_IOS)
+               .freeze
 
 #####
 ## iPad x iOS7.1
@@ -53,11 +54,12 @@ IOS_CAPS_IPAD_71 = {
     platformVersion: '8.1',
     deviceName: 'iPad Retina',
     calendarFormat: 'gregorian' # 西暦
-}.merge(CAPS_TEST_TARGET_IOS).
-    merge(CAPS_COMMON_IOS).
-    merge(CAPS_KEYS_IOS).
-    merge(CAPS_LOCAL_IOS).
-    merge(CAPS_OTHER_IOS).freeze
+}.merge(CAPS_TEST_TARGET_IOS)
+               .merge(CAPS_COMMON_IOS)
+               .merge(CAPS_KEYS_IOS)
+               .merge(CAPS_LOCAL_IOS)
+               .merge(CAPS_OTHER_IOS)
+               .freeze
 
 # capabilities for real device
 IOS_CAPABILITIES_REAL_DEVICE = {
