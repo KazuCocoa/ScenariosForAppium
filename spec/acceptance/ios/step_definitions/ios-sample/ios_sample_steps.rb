@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # execute only tagged as :sample_scenario
 steps_for :sample_scenario do
   step ' :account と :pass でログインする' do |account, pass|

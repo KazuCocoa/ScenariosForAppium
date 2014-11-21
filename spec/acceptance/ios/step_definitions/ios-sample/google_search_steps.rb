@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module GoogleSearch
   step 'test with :device' do |device|
     @device = device

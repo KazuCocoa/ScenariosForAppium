@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module BasicSteps
 
   def app_driver(device, server_url)

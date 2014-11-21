@@ -1,7 +1,4 @@
-# coding: utf-8
-
 module AppiumIosKey
-
 
   # keyboard
   def enter_search_button_ja_local

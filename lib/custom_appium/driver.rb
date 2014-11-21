@@ -1,5 +1,3 @@
-# coding: utf-8
-
 require 'appium_lib'
 
 # light wrapper

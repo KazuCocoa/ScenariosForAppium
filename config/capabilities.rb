@@ -1,5 +1,3 @@
-# coding: utf-8
-
 if ENV['appium_server']
   APPIUM_SERVER = ENV['appium_server'].freeze
 else

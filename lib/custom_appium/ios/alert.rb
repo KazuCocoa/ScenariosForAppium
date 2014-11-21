@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module AppiumIosAlert
 
   def alert_accept_if_exist

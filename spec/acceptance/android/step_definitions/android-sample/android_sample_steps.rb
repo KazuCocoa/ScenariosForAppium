@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module AndroidSampleSteps
 
   step ' :account と :pass でログインする' do |account, pass|

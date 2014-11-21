@@ -1,9 +1,6 @@
-# coding: utf-8
-
 APP_PATH_ANDROID = "#{Dir.pwd}apk/example.apk".freeze
 
 CAPS_COMMON_ANDROID = {
-    'appium-version' => '1.2.1'
     #resetKeyboard: true,
     #unicodeKeyboard: true
 }

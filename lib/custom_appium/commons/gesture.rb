@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module AppiumGesture
   # find element with accessibility_id strategy
   def tap_name(element_name)
