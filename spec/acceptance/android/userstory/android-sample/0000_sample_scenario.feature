@@ -1,3 +1,4 @@
+# encoding: utf-8
 # language: ja
 
 機能: 0000. feature sample

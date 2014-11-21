@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Feature: acceptance test
 #  Scenario: display the result of google search
 #    Given test with 'iphone'
