@@ -24,7 +24,8 @@ CAPS_LOCAL_IOS = {
 }
 
 CAPS_KEYS_IOS = {
-    interKeyDelay: 10 #The delay, in ms, between keystrokes sent to an element when typing.
+    sendKeyStrategy: 'grouped' # Simulator default: `oneByOne`. Real device default: 'grouped'
+    #interKeyDelay: 10 #The delay, in ms, between keystrokes sent to an element when typing.
 }
 
 CAPS_OTHER_IOS = {
