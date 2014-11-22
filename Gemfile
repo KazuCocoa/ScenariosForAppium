@@ -3,7 +3,7 @@ source "https://www.rubygems.org"
 gem 'rake'
 
 # For RSpec
-gem 'rspec', '~> 3.0.0'
+gem 'rspec', '~> 3.1.0'
 gem 'rspec-expectations'
 
 # For Turnip
