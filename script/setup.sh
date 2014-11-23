@@ -10,7 +10,7 @@ if !( type npm > /dev/null 2>&1 ) ; then
 fi
 
 # confirm iOS dev environment
-echo "Confirm xcode environment"
+echo "Your xcode environment"
 echo `xcode-select -p`
 
 # install appium via npm command
