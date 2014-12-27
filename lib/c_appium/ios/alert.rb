@@ -14,6 +14,7 @@ module AppiumIosAlert
 
   # waiting alert. Raise error if alert didn't appear
   def wait_alert_accept_if_exist
+    sleep 1.5 #should wait animation
     wait_true(timeout: 30, message: 'waiting alert dialog via wait_alert_accept_until_display_alert') {
       execute_script('$.mainApp().alert().buttons().length > 0')
     }
@@ -21,6 +22,7 @@ module AppiumIosAlert
   end
 
   def wait_alert_dismiss_if_exist
+    sleep 1.5 #should wait animation
     wait_true(timeout: 30,  message: 'waiting alert dialog via wait_alert_dismiss_until_display_alert') {
       execute_script('$.mainApp().alert().buttons().length > 0')
     }
@@ -46,7 +48,8 @@ module AppiumIosAlert
 
   # tap particular text if exist
   def tap_alert_if_exist(text)
-    if wait_true(message: "failed to wait #{text} on alert with timeout") {
+    sleep 1.5 # wait for animation
+    if wait_true(timeout: 30, message: "failed to wait #{text} on alert with timeout") {
       execute_script('$.mainApp().alert().buttons().length > 0') }
       execute_script("$.mainApp().alert().buttons()['#{text}'].tap();")
     end

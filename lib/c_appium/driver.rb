@@ -3,6 +3,17 @@ require 'appium_lib'
 # light wrapper
 require_relative 'commons/gesture'
 require_relative 'commons/common'
+require_relative 'commons/device_infos'
+
+# Android
+require_relative 'android/key'
+require_relative 'android/alert'
+
+# iOS
+require_relative 'ios/key'
+require_relative 'ios/alert'
+require_relative 'ios/gesture_ios'
+require_relative 'ios/actionsheet'
 
 module AppiumDriver
   #------------
@@ -11,6 +22,21 @@ module AppiumDriver
 
   include AppiumGesture
   include AppiumCommon
+  include AppiumDeviceInfos
+
+  # TODO: 読み込むファイルを環境変数で制御しなくてよくする
+  case ENV['os'].downcase
+  when 'android'
+    include AppiumAndroidKey
+    include AppiumAndroidAlert
+  when 'ios'
+    include AppiumIosKey
+    include AppiumIosAlert
+    include AppiumGestureIos
+    include AppiumIosActionSheet
+  else
+    # nothing
+  end
 
   # return instance of [Driver]
   def driver_start_with(caps, server_url)
@@ -46,5 +72,4 @@ module AppiumDriver
 
     @driver
   end
-
 end

@@ -1,8 +1,10 @@
 require 'date'
 require 'rspec'
 
-Dir[File.join(File.dirname(__FILE__), "..", "lib", "**/*.rb")].each { |f| require f }
-Dir[File.join(File.dirname(__FILE__), "..", "config", "**/*.rb")].each { |f| require f }
+require_relative '../lib/c_appium/driver'
+require_relative '../lib/utils'
+
+require_relative '../config/c_appium/capabilities' # need to require if you don't use turnip
 
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
@@ -10,13 +12,6 @@ Encoding.default_internal = Encoding::UTF_8
 RSpec.configure do |c|
 
   c.include AppiumDriver
-
-  if ENV['os'] == 'android'
-    c.include AppiumAndroidKey
-  elsif ENV['os'] == 'ios'
-    c.include AppiumIosKey
-    c.include AppiumIosAlert
-  end
 
   ## hooks for all test suite
   c.before(:suite, type: :feature) do

@@ -6,11 +6,12 @@ module AppiumCommon
 
   def save_screen_in(dir_path, filename)
     FileUtils.mkdir_p(dir_path) unless FileTest.exist?(dir_path)
+
     # Skip saving screenshot if failed to get screenshot with creating empty file
     begin
       screenshot "#{dir_path}#{filename}.png"
     rescue StandardError => e
-      puts e
+      puts "screenshot error: #{e}"
       FileUtils.touch("#{dir_path}#{filename}_failed_save_screen.png")
     end
   end

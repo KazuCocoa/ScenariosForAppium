@@ -1,9 +1,9 @@
 require 'rspec/core/rake_task'
 task default: :spec
 
-RSpec::Core::RakeTask.new(:spec) do |spec|
+RSpec::Core::RakeTask.new(:spec, :tag) do |spec, task_args|
 
-  spec.rspec_opts = "--tag #{ENV['tag']}" if ENV['tag']
+  spec.rspec_opts = "--tag #{task_args[:tag]}" if task_args[:tag]
 
   if ENV['os'] == 'ios' || ENV['os'] == 'android'
     # nothing

@@ -2,10 +2,11 @@ require 'turnip'
 require 'turnip_formatter'
 
 # OUT_REPORT defined in capabilities.rb
-Dir[File.join(File.dirname(__FILE__), "..", "config/c_appium/capabilities.rb")].each { |f| require f }
+require_relative '../config/capabilities'
 
-Dir.glob("spec/acceptance/#{ENV['os']}/step_definitions/#{ENV['scope']}/**/*steps.rb") { |f| load(f, true) }
-Dir.glob('spec/acceptance/step_definitions/**/*steps.rb') { |f| load(f, true) }
+Dir.glob("spec/acceptance/#{ENV['os']}/#{ENV['scope']}/step_definitions/*steps.rb") { |f| load(f, true) }
+Dir.glob("spec/acceptance/#{ENV['os']}/step_definitions/*steps.rb") { |f| load(f, true) }
+
 
 TurnipFormatter.configure do |config|
   config.title = 'My title'
