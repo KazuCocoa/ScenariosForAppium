@@ -15,7 +15,7 @@ require_relative 'ios/alert'
 require_relative 'ios/gesture_ios'
 require_relative 'ios/actionsheet'
 
-module AppiumDriver
+module AppiumCustomDriver
   #------------
   # basic operations
   # -----------
@@ -68,7 +68,7 @@ module AppiumDriver
     # Note that this can also be scoped to limit the potential for conflicts.
     # Example: Appium.promote_appium_methods ::Example::Spec
     # Another alternative is to not promote at all. Instead access methods via $driver
-    Appium.promote_appium_methods RSpec::Core::ExampleGroup
+    Appium.promote_appium_methods AppiumCustomDriver
 
     @driver
   end

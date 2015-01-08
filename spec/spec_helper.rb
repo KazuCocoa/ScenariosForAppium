@@ -11,7 +11,7 @@ Encoding.default_internal = Encoding::UTF_8
 
 RSpec.configure do |c|
 
-  c.include AppiumDriver
+  c.include AppiumCustomDriver
 
   ## hooks for all test suite
   c.before(:suite, type: :feature) do
